@@ -1,0 +1,24 @@
+<h1>Listing Users</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Phone Number</th>
+    <th>Profile Picture</th>
+    <th>Is Admin</th>
+    <th>Action</th>
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.address %></td>
+      <td><%= user.phone_number %></td>
+      <td><%= user.profile_picture %></td>
+      <td><%= user.is_admin %></td>
+    </tr>
+  <% end %>
+</table>

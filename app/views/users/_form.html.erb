@@ -1,0 +1,87 @@
+<% new_record = user.new_record? %>
+<%= form_for(user, local: true) do |f| %>
+  <div class='card user-container'>
+    <div class='card-header'>
+      <h5 class='card-title'><%= user.new_record? ? 'New ' : 'Edit ' %>User</h5>
+    </div>
+    <div class='card-body'>
+      <div class='form-group row'>
+        <%= f.label 'Name', class: 'col-sm-2' %>
+        <%= f.text_field :name, class: 'form-control col-sm-8', placeholder: 'Name', required: true %>
+      </div>
+
+      <div class='form-group row'>
+        <%= f.label 'Email', class: 'col-sm-2' %>
+        <%= f.email_field :email, class: 'form-control col-sm-8', placeholder: 'Email Address', required: true, pattern: ".{1,40}[@]{1}[a-zA-Z0-9-]{1,30}[.]{1}[a-z0-9._%+-]{2,20}" %>
+      </div>
+
+      <div class='form-group row'>
+        <%= f.label 'Address', class: 'col-sm-2' %>
+        <%= f.text_field :address, class: 'form-control col-sm-8', placeholder: 'Address', required: true %>
+      </div>
+
+      <div class='form-group row'>
+        <%= f.label 'Phone Number', class: 'col-sm-2' %>
+        <%= f.telephone_field :phone_number, class: 'form-control col-sm-8', placeholder: 'Phone Number', required: true, minlength: 9, maxlength: 12 %>
+      </div>
+
+      <div class='form-group row'>
+        <%= f.label 'Profile Picture', class: 'col-sm-2' %>
+        <%= f.file_field :profile_picture, class: 'form-control col-sm-8', placeholder: 'Profile Picture', required: true %>
+      </div>
+
+      <div class='form-group row'>
+        <%= f.label 'Admin', class: 'col-sm-2' %>
+        <%= f.check_box :is_admin, class: 'form-control-sm col-sm-8' %>
+      </div>
+    </div>
+
+    <% if new_record || user.is_admin %>
+      <div class='card-header' style='border-top: inherit;'>
+        <h5 class='card-title'>Password Settings</h5>
+      </div>
+      <div class='card-body'>
+        <% unless new_record %>
+          <div class='form-group row'>
+            <%= f.label 'Change Password', class: 'col-sm-2' %>
+            <%= check_box_tag :change_password, {} , false, class: 'form-control-sm col-sm-8', id: 'change_password' %>
+          </div>
+        <% end %>
+
+        <div class='form-group row'>
+          <%= f.label 'Password', class: 'col-sm-2' %>
+          <%= f.password_field :password, label: "Password#{'*' if new_record}", id: 'password', class: 'col-sm-8'  %>
+        </div>
+
+        <div class='form-group row'>
+          <%= f.label 'Password Confirmation', class: 'col-sm-2' %>
+          <%= f.password_field :password_confirmation, label: "Password Confirmation#{'*' if new_record}", id: 'password_confirmation', class: 'col-sm-8' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='float-right' style='display: flex;'>
+    <!-- <button class="btn btn-primary btn-sm" onclick="window.open('/users')"><span style='color: #FFFFFF'>Back</span></button>&nbsp;&nbsp;&nbsp; -->
+    <button type='submit' class="btn btn-primary btn-block btn-large"><span style='color: #FFFFFF'>Save</span></button>
+  </div>
+<% end %>
+
+<script type='text/javascript'>
+  $(document).ready(function() {
+    if ($('#change_password')[0]) {
+      $('#password').prop('disabled', true);
+      $('#password_confirmation').prop('disabled', true);
+    }
+
+    $('#change_password').click(function() {
+      if ($(this).is(':checked')) {
+        $('#password').prop('disabled', false);
+        $('#password_confirmation').prop('disabled', false);
+      } else {
+        $('#password').prop('disabled', true);
+        $('#password_confirmation').prop('disabled', true);
+      }
+    });
+  });
+</script>

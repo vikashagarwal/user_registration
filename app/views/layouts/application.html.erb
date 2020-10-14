@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>UserRegistration</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-<%= yield %>
+<html lang="en">
+  <head>
+    <title>UserRegistration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body>
+    <%= render 'layouts/flash' if flash.present? %>
+    <% if user_signed_in? %>
+      <div class='container' style='background: white; height: 100%;'>
+    <% else %>
+      <div class='container'>
+    <% end %>
+      <%= yield %>
+    </div>
+  </body>
 </html>

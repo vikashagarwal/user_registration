@@ -1,0 +1,68 @@
+.body {
+  font-family: Lato;
+}
+
+.form-control-sm1 {
+  border-radius: 0px !important;
+}
+
+.bgimg {
+  background: transparent linear-gradient(124deg, #E54E4E 0%, #9B0740 100%) 0% 0% no-repeat padding-box;
+  overflow: hidden !important;
+}
+
+.table-responsive {
+  display: table;
+}
+
+a.sidebar-link.li-color {
+  color: #ffffff;
+}
+
+.mt-5p {
+  margin-top: 5%;
+}
+
+.mt-10p {
+  margin-top: 10%;
+}
+
+@media (min-width: 600px) {
+  /* CSS that should be displayed if width is more than 600px goes here */
+  .mt-30p {
+    margin-top: 30%;
+  }
+  .devise-card-div {
+    display: flex;
+    padding-left: 0 !important;
+  }
+}
+
+.devise-card-sidebar {
+  text-align: center;
+  box-shadow: 1px 0px 7px 0px #888888;
+}
+
+.devise-link, .devise-link:hover {
+  color: #D7404B!important;
+}
+
+.devise-btn, .devise-btn:active {
+  width: 100%;
+  background: transparent linear-gradient(180deg, #E54E4E 0%, #9C0840 100%) 0% 0% no-repeat padding-box !important;
+}
+
+.sidebar, .sidebar-content {
+  background: transparent linear-gradient(124deg, #E54E4E 0%, #9B0740 100%) 0% 0% no-repeat padding-box !important;
+}
+
+.sidebar-link, a.sidebar-link {
+  background: transparent linear-gradient(124deg, #E54E4E 0%, #9B0740 100%) 0% 0% no-repeat padding-box !important;
+}
+
+.sidebar-item.active>.sidebar-link {
+  background: #354052 !important;
+  color: #FFF !important;
+  font-weight: bold;
+  font-size: 16px;
+}

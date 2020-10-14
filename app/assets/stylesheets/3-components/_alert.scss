@@ -1,0 +1,108 @@
+
+// Theme colors
+$blue:    #5b7dff !default;
+$red:     #f44455 !default;
+$yellow:  #fcc100 !default;
+$green:   #0CBF05 !default;
+
+$cyan:    #47BAC1 !default;
+$pink:    #a180da !default;
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+$dark-black: #000000;
+
+$primary:          $cyan !default;
+$secondary:        $pink !default;
+$tertiary:         $green !default;
+$success:          $green !default;
+$info:             $blue !default;
+$warning:          $yellow !default;
+$danger:           $red !default;
+$light:            $gray-100 !default;
+$dark:             #6D0202 !default;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+) !default;
+
+$body-color: $gray-700 !default;
+
+.alert {
+  padding: 0;
+  display: flex;
+  color: $white;
+
+  .close:hover,
+  .close:focus {
+    color: $white;
+    opacity: 1;
+  }
+}
+
+.alert-outline,
+.alert-outline-coloured {
+  color: $body-color;
+  background: $white;
+
+  hr {
+    border-top-color: $gray-400;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: $gray-800;
+  }
+
+  .alert-message {
+    border: 1px solid $gray-400;
+  }
+
+  .alert-message:not(:nth-child(2)) {
+    border-left: 0;
+  }
+
+  .alert-icon {
+    color: $white;
+  }
+
+  @each $color, $value in $theme-colors {
+    &.alert-#{$color} .alert-icon {
+      background-color: $value;
+    }
+  }
+}
+
+.alert-outline-coloured {
+  @each $color, $value in $theme-colors {
+    &.alert-#{$color} .alert-message {
+      border-color: $value;
+    }
+  }
+}
+
+.alert-icon {
+  background: rgba(255,255,255,.1);
+}
+
+.alert-message {
+  width: 100%;
+  box-sizing: border-box;
+}

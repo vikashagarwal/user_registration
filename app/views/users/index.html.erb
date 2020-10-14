@@ -1,0 +1,61 @@
+<h1>Listing Users</h1>
+
+<div class='row'>
+  <div class='col-12'>
+    <div class='card'>
+      <div class='card-body'>
+        <div class='table-responsive'>
+          <table id='user-list' class='table table-striped custom-table' data-source="<%= users_path(format: :json) %>">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Profile Picture</th>
+                <th>Is Admin</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    var dynamic_table = $('#user-list').dataTable({
+      'searching': true,
+      'order': [
+        [1, 'desc'], [2, 'desc']
+      ],
+      'pageLength': 15, // set the initial value,
+      'columnDefs': [{  // set default column settings
+        'orderable': false,
+        'targets': [4, 5, 6]
+      }, {
+        'searchable': true,
+        'targets': [2]
+      }],
+      'bServerSide' : true,
+      'bProcessing' : true,
+      'sAjaxSource' : $('#user-list').data('source'),
+    });
+
+    // turbolinks cache fix
+    $(document).on('turbolinks:before-cache', function() {
+      var dataTable = $($.fn.dataTable.tables(true)).DataTable();
+      if (dataTable !== null) {
+        dataTable.clear();
+        dataTable.destroy();
+        return dataTable = null;
+      }
+    });
+
+    // $('#user-list_length, #user-list_info').remove();
+    $('#user-list_length').remove();
+    $('#user-list_wrapper').prepend($('#create-user'));
+  });
+</script>

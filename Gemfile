@@ -5,14 +5,18 @@ ruby '2.6.2'
 gem 'rails', '~> 5.0.4'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5.2'
+# Use Puma as the app server
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.4.2', require: false
+gem 'mini_racer', platforms: :ruby
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -25,9 +29,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-
-gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -49,5 +50,21 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry'
 end
 
+gem 'awesome_print'
+# Use jquery as the JavaScript library
+gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap-datepicker-rails'
+gem 'bootstrap_form'
+gem 'font-awesome-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-datatables'
+gem 'select2-rails'
+
+gem 'devise'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'will_paginate-bootstrap4'

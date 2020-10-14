@@ -22,7 +22,7 @@ class UserDatatable
   def data
     users[1].map do |record|
       edit_link = link_to 'Edit', edit_user_path(record.id)
-      link = link_to image_tag(record.profile_picture.url(:thumb), class: 'media-object'), record.profile_picture.url, target: '_blank'
+      link = link_to image_tag(record.profile_picture.url, class: 'media-object'), record.profile_picture.url, target: '_blank'
 
       [
         record.name,

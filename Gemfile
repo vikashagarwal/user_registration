@@ -66,5 +66,5 @@ gem 'jquery-datatables'
 gem 'select2-rails'
 
 gem 'devise'
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'carrierwave'
 gem 'will_paginate-bootstrap4'

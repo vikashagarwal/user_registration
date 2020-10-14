@@ -1,6 +1,6 @@
 <%
   new_record = user.new_record?
-  readonly = current_user.is_admin
+  readonly = !current_user.is_admin
 %>
 <%= form_for(user, local: true) do |f| %>
   <div class='card user-container'>

@@ -10,23 +10,10 @@ class UsersController < ApplicationController
     end
 	end
 
-  def new
-    redirect_to edit_user_path(current_user.id) unless current_user.is_admin
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.valid? && @user.save!
-      redirect_to({ action: 'index' }, notice: 'User was successfully created.')
-    else
-      flash[:error] = @user.errors.full_messages.join(', ')
-      render :new
-    end
-  end
-
   def edit
-    params[:id] = current_user.id unless current_user.is_admin #restricting to edit other user details
+    if current_user && !current_user.is_admin #restricting to edit other user details
+      params[:id] = current_user.id
+    end
   end
 
   def update

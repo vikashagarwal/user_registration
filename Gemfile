@@ -67,4 +67,5 @@ gem 'select2-rails'
 
 gem 'devise'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'will_paginate-bootstrap4'

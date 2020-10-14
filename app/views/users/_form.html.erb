@@ -1,4 +1,7 @@
-<% new_record = user.new_record? %>
+<%
+  new_record = user.new_record?
+  readonly = current_user.is_admin
+%>
 <%= form_for(user, local: true) do |f| %>
   <div class='card user-container'>
     <div class='card-header'>
@@ -7,17 +10,17 @@
     <div class='card-body'>
       <div class='form-group row'>
         <%= f.label 'Name', class: 'col-sm-2' %>
-        <%= f.text_field :name, class: 'form-control col-sm-8', placeholder: 'Name', required: true %>
+        <%= f.text_field :name, class: 'form-control col-sm-8', placeholder: 'Name', required: true, readonly: readonly %>
       </div>
 
       <div class='form-group row'>
         <%= f.label 'Email', class: 'col-sm-2' %>
-        <%= f.email_field :email, class: 'form-control col-sm-8', placeholder: 'Email Address', required: true, pattern: ".{1,40}[@]{1}[a-zA-Z0-9-]{1,30}[.]{1}[a-z0-9._%+-]{2,20}" %>
+        <%= f.email_field :email, class: 'form-control col-sm-8', placeholder: 'Email Address', required: true, pattern: ".{1,40}[@]{1}[a-zA-Z0-9-]{1,30}[.]{1}[a-z0-9._%+-]{2,20}", readonly: readonly %>
       </div>
 
       <div class='form-group row'>
         <%= f.label 'Address', class: 'col-sm-2' %>
-        <%= f.text_field :address, class: 'form-control col-sm-8', placeholder: 'Address', required: true %>
+        <%= f.text_field :address, class: 'form-control col-sm-8', placeholder: 'Address', required: true, readonly: readonly %>
       </div>
 
       <div class='form-group row'>
@@ -27,12 +30,12 @@
 
       <div class='form-group row'>
         <%= f.label 'Profile Picture', class: 'col-sm-2' %>
-        <%= f.file_field :profile_picture, class: 'form-control col-sm-8', placeholder: 'Profile Picture', required: true %>
+        <%= f.file_field :profile_picture, class: 'form-control col-sm-8', placeholder: 'Profile Picture', readonly: readonly %>
       </div>
 
       <div class='form-group row'>
         <%= f.label 'Admin', class: 'col-sm-2' %>
-        <%= f.check_box :is_admin, class: 'form-control-sm col-sm-8' %>
+        <%= f.check_box :is_admin, class: 'form-control-sm col-sm-8', readonly: readonly %>
       </div>
     </div>
 

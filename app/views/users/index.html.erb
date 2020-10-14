@@ -4,6 +4,9 @@
   <div class='col-12'>
     <div class='card'>
       <div class='card-body'>
+        <span id='create-user'>
+          <%= link_to 'New User', new_user_path, class: 'btn btn-danger' %>
+        </span>
         <div class='table-responsive'>
           <table id='user-list' class='table table-striped custom-table' data-source="<%= users_path(format: :json) %>">
             <thead>

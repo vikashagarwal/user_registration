@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :users, only: [:index, :edit, :update]
+  resources :home, only: [:index, :new, :create, :edit, :update]
 
-  root to: 'users#index'
+  root to: 'home#index'
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
 

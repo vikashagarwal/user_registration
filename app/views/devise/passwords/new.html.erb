@@ -1,0 +1,18 @@
+<div class="login">
+  <h1>Forgot your password?</h1>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <div class='mt-10p'>
+      <div class='form-group'>
+        <%= f.email_field :email, class: 'form-control', placeholder: 'Email Address', required: true, pattern: ".{1,40}[@]{1}[a-zA-Z0-9-]{1,30}[.]{1}[a-z0-9._%+-]{2,20}" %>
+        <small>
+          <a href='/users/sign_in' class='devise-link'>Sign in</a>
+          <a href='/users/sign_up' class='devise-link float-right'>Sign up</a>
+        </small>
+      </div>
+    </div>
+
+    <div class='text-center'>
+      <button type='submit' class="btn btn-primary btn-block btn-large"><span style='color: #FFFFFF'>Send Reset Password Link</span></button>
+    </div>
+  <% end %>
+</div>

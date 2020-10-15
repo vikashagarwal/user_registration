@@ -1,0 +1,3 @@
+<%= form_for(@user, url: home_path(@user), html: { multipart: true }) do |f| %>
+  <%= render 'form', f: f, user: @user %>
+<% end %>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserDatatable
-  delegate :params, :h, :link_to, :image_tag, :edit_user_path, :user_path, to: :@view
+  delegate :params, :h, :link_to, :image_tag, :edit_home_path, to: :@view
 
   def initialize(view, current_user, _params)
     @view = view
@@ -21,7 +21,7 @@ class UserDatatable
 
   def data
     users[1].map do |record|
-      edit_link = link_to 'Edit', edit_user_path(record.id)
+      edit_link = link_to 'Edit', edit_home_path(record.id)
       img = record.profile_picture.url(:thumb)
       link = link_to image_tag((img.present? ? img : ''), class: 'media-object'), record.profile_picture.url, target: '_blank'
 

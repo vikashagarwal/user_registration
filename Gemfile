@@ -53,9 +53,9 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry'
+  gem 'awesome_print'
 end
 
-gem 'awesome_print'
 # Use jquery as the JavaScript library
 gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap-datepicker-rails'
@@ -69,3 +69,6 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'will_paginate-bootstrap4'
+
+gem 'rspec'
+gem 'simplecov', require: false, group: :test
